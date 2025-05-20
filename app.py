@@ -296,6 +296,4 @@ def view_logs():
 
     return render_template('admin/view_logs.html',)
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000)
-
+gunicorn app:app --bind 0.0.0.0:10000
