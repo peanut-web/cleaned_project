@@ -1,0 +1,53 @@
+
+{% extends "base.html" %}
+{% block title %}Safety Monitoring{% endblock %}
+
+{% block content %}
+<h2>🦺 Safety Monitoring</h2>
+
+<p>This tool ensures that workers follow all basic safety protocols at construction sites like:</p>
+<ul>
+  <li>Helmet Detection</li>
+  <li>Safety Vest Detection</li>
+  <li>Unauthorized Person Detection</li>
+</ul>
+
+<h4>🔧 Technologies Used:</h4>
+<ul>
+  <li>YOLOv8</li>
+  <li>OpenCV</li>
+  <li>Python</li>
+</ul>
+
+<form action="{{ url_for('start_webcam') }}" method="post" style="display:inline;">
+  <button class="main-btn">▶️ Start Live Detection</button>
+</form>
+
+<form action="{{ url_for('stop_webcam') }}" method="post" style="display:inline;">
+  <button class="main-btn red">⏹ Stop</button>
+</form>
+
+{% if stream %}
+  <div style="margin-top: 30px;">
+    <h3>📡 Live Webcam Feed:</h3>
+    <img src="{{ url_for('video_feed') }}" width="640" height="480" style="border: 2px solid #333;">
+  </div>
+{% endif %}
+
+<style>
+  .main-btn {
+    padding: 10px 20px;
+    font-size: 15px;
+    margin: 10px;
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .main-btn.red {
+    background-color: crimson;
+  }
+</style>
+{% endblock %}

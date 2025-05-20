@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Home | Construction Site Monitoring</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: url('/static/images/user_bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        .navbar {
+            background-color: #2e3b55;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .left {
+            font-size: 18px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .title {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 34px;
+            font-weight: bold;
+            text-shadow: 2px 2px #000;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 60px;
+            gap: 30px;
+        }
+
+        .button-container a {
+            text-decoration: none;
+            background-color: #00b894;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 18px;
+            width: 260px;
+            text-align: center;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .button-container a:hover {
+            background-color: #26de81;
+        }
+
+        .feature {
+            font-size: 15px;
+            margin-top: 5px;
+            font-style: italic;
+            color: #dfe6e9;
+        }
+
+        .logout {
+            margin-top: 40px;
+            background-color: crimson !important;
+            width: 120px !important;
+            font-size: 14px !important;
+        }
+
+        .watermark {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            font-size: 14px;
+            opacity: 0.7;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="left"><a href="{{ url_for('home') }}">Home</a></div>
+    </div>
+
+    <div class="title">Welcome to Construction Tracker</div>
+
+    <div class="button-container">
+        <a href="{{ url_for('safety') }}">Safety Monitoring</a>
+        <div class="feature">✔ Real-time detection of helmets, vests, and people</div>
+
+        <a href="{{ url_for('progress') }}">Progress Tracking</a>
+        <div class="feature">✔ Image and video comparison for progress tracking</div>
+
+        <a href="{{ url_for('logout') }}" class="logout">Logout</a>
+    </div>
+
+    <div class="watermark">BY @VIKASREDDY</div>
+
+</body>
+</html>
+
+

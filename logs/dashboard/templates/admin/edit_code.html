@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Edit Code - Admin</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('/static/images/edit_code_bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #eee;
+    min-height: 100vh;
+    position: relative;
+  }
+  .watermark {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    font-size: 14px;
+    opacity: 0.5;
+    user-select: none;
+    color: #ddd;
+  }
+  nav {
+    background-color: #2c3e50;
+    padding: 15px 30px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.7);
+  }
+  nav a {
+    color: #1abc9c;
+    font-weight: 700;
+    font-size: 18px;
+    text-decoration: none;
+    margin-right: 20px;
+  }
+  nav a:hover {
+    color: #16a085;
+  }
+  main {
+    max-width: 1100px;
+    margin: 40px auto;
+    background: rgba(0,0,0,0.7);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,188,212,0.5);
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 900;
+    color: #1abc9c;
+  }
+  label, select {
+    font-weight: 700;
+    font-size: 16px;
+    color: #1abc9c;
+  }
+  select {
+    padding: 8px 12px;
+    margin-left: 10px;
+    border-radius: 6px;
+    border: none;
+    background-color: #34495e;
+    color: #eee;
+    cursor: pointer;
+  }
+  select:hover {
+    background-color: #16a085;
+  }
+  form {
+    margin-top: 25px;
+  }
+  textarea {
+    width: 100%;
+    height: 500px;
+    background: #1a1a1a;
+    color: #eee;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    resize: vertical;
+    box-shadow: inset 0 0 10px #16a085;
+  }
+  button {
+    margin-top: 15px;
+    background-color: #1abc9c;
+    border: none;
+    color: #000;
+    font-weight: 700;
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    float: right;
+  }
+  button:hover {
+    background-color: #16a085;
+  }
+  .message {
+    margin-top: 10px;
+    font-weight: 700;
+    color: #2ecc71;
+    text-align: center;
+  }
+  .error {
+    color: #e74c3c;
+  }
+</style>
+<script>
+  async function loadFileContent() {
+    const select = document.getElementById('fileSelect');
+    const filename = select.value;
+    if (!filename) {
+      document.getElementById('codeArea').value = '';
+      return;
+    }
+    try {
+      const response = await fetch(`/load_code?filename=${encodeURIComponent(filename)}`);
+      if (!response.ok) throw new Error('Failed to load file content');
+      const text = await response.text();
+      document.getElementById('codeArea').value = text;
+      document.getElementById('filename').value = filename;
+      document.getElementById('message').textContent = '';
+    } catch (error) {
+      document.getElementById('codeArea').value = '';
+      document.getElementById('message').textContent = 'Error loading file content.';
+      document.getElementById('message').classList.add('error');
+    }
+  }
+</script>
+</head>
+<body>
+
+<nav>
+  <a href="{{ url_for('home') }}">Home</a>
+</nav>
+
+<main>
+  <h2>Edit Project Files</h2>
+
+  <label for="fileSelect">Select file to edit:</label>
+  <select id="fileSelect" onchange="loadFileContent()">
+    <option value="">-- Select a file --</option>
+    {% for file in files %}
+      <option value="{{ file }}" {% if file == selected_file %}selected{% endif %}>{{ file }}</option>
+    {% endfor %}
+  </select>
+
+  <form method="POST" action="{{ url_for('edit_code') }}">
+  <input type="hidden" id="filename" name="filename" value="{{ filename if filename else '' }}" />
+
+    <textarea id="codeArea" name="code" placeholder="Select a file to load its contents...">{{ code if code else '' }}</textarea>
+    <button type="submit">Save Changes</button>
+  </form>
+
+  <div id="message" class="message">{{ message if message else '' }}</div>
+</main>
+
+<div class="watermark">BY @VIKASREDDY</div>
+
+</body>
+</html>
+
+

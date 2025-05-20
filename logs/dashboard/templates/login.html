@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login | Construction Site Monitoring</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: url('{{ url_for('static', filename='login_page.jpg') }}') no-repeat center center fixed;
+
+            background-size: cover;
+            color: #fff;
+        }
+        .container {
+            text-align: center;
+            padding-top: 8vh;
+            max-width: 80%;
+            margin: auto;
+        }
+        .title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px #000;
+        }
+        .desc {
+            font-size: 18px;
+            margin-bottom: 40px;
+            line-height: 1.7;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: inline-block;
+            padding: 25px;
+            border-radius: 10px;
+        }
+        .login-box {
+            background-color: rgba(0, 0, 0, 0.75);
+            padding: 30px;
+            border-radius: 10px;
+            width: 320px;
+            margin: 0 auto;
+        }
+        .login-box input,
+        .login-box select {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+        .login-box button {
+            width: 100%;
+            background-color: #ffb400;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+        .watermark {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            font-size: 14px;
+            opacity: 0.7;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Construction Site Monitoring</div>
+        <div class="desc">
+            Real-time safety compliance checks through AI-powered image analysis.<br>
+            Progress tracking using site photos and videos.<br>
+            Issue identification and notification system.<br>
+            Integrated with cloud storage for storing and analyzing site images.
+        </div>
+
+        <div class="login-box">
+            <form method="POST" action="/">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <select name="role" required>
+                    <option value="">Select Role</option>
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                </select>
+                <button type="submit">Login</button>
+                {% if error %}
+                    <div class="error">{{ error }}</div>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+
+    <div class="watermark">BY @VIKASREDDY</div>
+</body>
+</html>

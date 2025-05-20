@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: construction-site-monitoring
+    env: python
+    plan: free
+    buildCommand: poetry install
+    startCommand: poetry run python app.py
+    repo: https://github.com/peanut-web/construction_site_monitoringng
+    branch: main
+    pythonVersion: 3.11.11

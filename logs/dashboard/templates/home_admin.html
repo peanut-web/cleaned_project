@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard - Construction Site Monitoring{% endblock %}
+
+{% block content %}
+<body style="background: url('{{ url_for('static', filename='admin_home_page.png') }}') no-repeat center center fixed; background-size: cover;">
+
+<h2>👨‍💼 Welcome, Admin</h2>
+
+<div class="admin-options">
+  <!-- Five vertical buttons -->
+  <a href="{{ url_for('safety') }}"><button class="main-btn">🦺 Safety Detection</button></a>
+  <a href="{{ url_for('progress') }}"><button class="main-btn">📊 Progress Tracker</button></a>
+  <a href="{{ url_for('manage_users') }}"><button class="main-btn">👥 Manage Users</button></a>
+  <a href="#"><button class="main-btn">🛠 Edit Files</button></a>
+  <a href="{{ url_for('view_logs') }}"><button class="main-btn">📝 View Logs</button></a>
+</div>
+
+<!-- Logout button at the bottom, centered -->
+<a href="{{ url_for('logout') }}"><button class="logout-btn">🚪 Logout</button></a>
+
+<style>
+  body {
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .admin-options {
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 600px;
+    margin: 30px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* spacing between buttons vertically */
+  }
+
+  .admin-options h3 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: #003366;
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  .main-btn {
+    background-color: #0059b3;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%; /* full width buttons */
+  }
+
+  .main-btn:hover {
+    background-color: #004080;
+  }
+
+  .logout-btn {
+    margin: 40px auto;
+    background-color: red;
+    color: white;
+    padding: 12px 40px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    display: block;
+    width: max-content;
+    cursor: pointer;
+  }
+
+  .logout-btn:hover {
+    background-color: darkred;
+  }
+</style>
+
+</body>
+{% endblock %}
+

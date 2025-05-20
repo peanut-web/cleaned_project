@@ -1,0 +1,21 @@
+
+[2025-05-19 11:02:15] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747632735/logs/twnf5xis2lnhw44sm63s.txt
+[2025-05-19 11:02:15] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747632735/logs/aloojqqcenqmkhug59bh.txt
+[2025-05-19 11:02:54] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747632774/logs/ge5cyoushtqgvyhjgyuw.txt
+[2025-05-19 11:27:48] Admin logged in.
+[2025-05-19 11:27:54] admin started live detection.
+[2025-05-19 11:27:56] admin stopped live detection.
+[2025-05-19 11:28:00] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747634279/logs/kg8z3bsnmuqkvtou2im3.txt
+[2025-05-19 11:28:01] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747634280/logs/g6vuivndd8mxrnue3ci9.txt
+[2025-05-19 11:31:08] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747634468/logs/rkpl2dsbc8nd74aovzsx.txt
+[2025-05-19 11:31:13] admin logged out.
+[2025-05-19 11:31:25] Admin logged in.
+[2025-05-19 11:31:34] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747634494/logs/o1gpkdgoruhinsdgnqr3.txt
+[2025-05-19 11:43:55] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747635235/logs/shfggin2shbcoo0sxj08.txt
+[2025-05-19 11:44:02] admin logged out.
+[2025-05-19 11:44:15] Admin logged in.
+[2025-05-19 11:44:22] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747635261/logs/acip6p2pkkadfcndpgzi.txt
+[2025-05-19 12:26:39] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747637799/logs/g4tlvmgay3eobgalzn6z.txt
+[2025-05-19 12:32:58] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747638178/logs/jebr99u0phvorxkpbqol.txt
+[2025-05-19 12:33:01] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747638181/logs/i3k7bcismqlg4havbsmd.txt
+[2025-05-19 12:33:02] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747638182/logs/hybvjhnyuydbgsja5lxr.txt
