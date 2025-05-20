@@ -1,3 +1,4 @@
+
 [tool.poetry]
 name = "construction-site-monitoring"
 version = "0.1.0"

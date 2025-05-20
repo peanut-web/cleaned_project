@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}User Dashboard{% endblock %}
+
+{% block content %}
+<body style="background: url('{{ url_for('static', filename='IMG_20250518_103718.png') }}') no-repeat center center fixed; background-size: cover;">
+
+<h2>👷 Welcome, {{ session['user'].capitalize() }}</h2>
+
+<div class="card-section">
+  <div class="card">
+    <h3>🦺 Safety Monitoring</h3>
+    <p>Live detection of helmet, vest, and person using your webcam.</p>
+    <a href="{{ url_for('safety') }}"><button class="main-btn">Launch</button></a>
+  </div>
+
+  <div class="card">
+    <h3>📸 Construction Progress</h3>
+    <p>Compare expected and actual media to track project status.</p>
+    <a href="{{ url_for('progress') }}"><button class="main-btn">Upload</button></a>
+  </div>
+</div>
+
+<a href="{{ url_for('logout') }}"><button class="logout-btn">🚪 Logout</button></a>
+
+<style>
+  .card-section {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
+  .card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 280px;
+    flex: 1;
+  }
+  .card h3 {
+    margin-bottom: 10px;
+  }
+  .main-btn {
+    background-color: #0059b3;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .main-btn:hover {
+    background-color: #004080;
+  }
+  .logout-btn {
+    margin-top: 40px;
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .logout-btn:hover {
+    background-color: darkred;
+  }
+</style>
+
+</body>
+{% endblock %}

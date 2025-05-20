@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Construction Site Monitoring</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            font-family: monospace;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+        }
+
+        h1, h2 {
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="navbar-left">
+        <a href="{{ url_for('home') }}">🏠 Home</a>
+    </div>
+</div>
+
+<div class="content">
+    {% block content %}{% endblock %}
+</div>
+
+</body>
+</html>
+
+
+
+
