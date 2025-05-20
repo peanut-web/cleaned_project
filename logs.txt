@@ -1,0 +1,41 @@
+
+[2025-05-19 11:02:15] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747632735/logs/twnf5xis2lnhw44sm63s.txt
+[2025-05-19 11:02:15] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747632735/logs/aloojqqcenqmkhug59bh.txt
+[2025-05-19 11:02:54] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747632774/logs/ge5cyoushtqgvyhjgyuw.txt
+[2025-05-19 11:27:48] Admin logged in.
+[2025-05-19 11:27:54] admin started live detection.
+[2025-05-19 11:27:56] admin stopped live detection.
+[2025-05-19 11:28:00] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747634279/logs/kg8z3bsnmuqkvtou2im3.txt
+[2025-05-19 11:28:01] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747634280/logs/g6vuivndd8mxrnue3ci9.txt
+[2025-05-19 11:31:08] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747634468/logs/rkpl2dsbc8nd74aovzsx.txt
+[2025-05-19 11:31:13] admin logged out.
+[2025-05-19 11:31:25] Admin logged in.
+[2025-05-19 11:31:34] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747634494/logs/o1gpkdgoruhinsdgnqr3.txt
+[2025-05-19 11:43:55] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747635235/logs/shfggin2shbcoo0sxj08.txt
+[2025-05-19 11:44:02] admin logged out.
+[2025-05-19 11:44:15] Admin logged in.
+[2025-05-19 11:44:22] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747635261/logs/acip6p2pkkadfcndpgzi.txt
+[2025-05-19 12:26:39] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747637799/logs/g4tlvmgay3eobgalzn6z.txt
+[2025-05-19 12:32:58] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747638178/logs/jebr99u0phvorxkpbqol.txt
+[2025-05-19 12:33:01] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747638181/logs/i3k7bcismqlg4havbsmd.txt
+[2025-05-19 12:33:02] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747638182/logs/hybvjhnyuydbgsja5lxr.txt
+[2025-05-19 13:27:14] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747641434/logs/qy2ispxzb1y8erb33mfu.txt
+[2025-05-19 13:29:06] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747641546/logs/j1umr47wc2jcvskvk3tj.txt
+[2025-05-19 13:29:10] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747641549/logs/tc9tmis5p2y1yid1n0at.txt
+[2025-05-19 13:29:11] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747641550/logs/qja8pkwbhdlxkadzp5vh.txt
+[2025-05-19 13:30:40] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747641639/logs/wyttwdkmfnvvdczcfnl9.txt
+[2025-05-19 13:30:44] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747641644/logs/x9fmysa7o80ppjgxjbmk.txt
+[2025-05-19 13:34:47] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747641886/logs/dzyhxpo5eir60kwg1j57.txt
+[2025-05-19 13:34:49] Logs file uploaded to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/raw/upload/v1747641889/logs/jnys9igcfhbpxadx6th2.txt
+[2025-05-19 13:40:13] admin logged out.
+[2025-05-19 13:40:24] Admin logged in.
+[2025-05-19 13:41:28] User logged in.
+[2025-05-19 14:12:03] User logged in.
+[2025-05-19 14:12:38] Uploaded expected image to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/image/upload/v1747644156/progress_images/df6admbtixmgvjdqekct.jpg
+[2025-05-19 14:12:38] Uploaded actual image to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/image/upload/v1747644158/progress_images/hmirgg1qnmfdzidbofbz.png
+[2025-05-19 14:12:42] Progress report sent to client: 34.17%
+[2025-05-19 14:13:30] user logged out.
+[2025-05-19 14:13:40] Admin logged in.
+[2025-05-19 14:14:09] Deleted client with phone: 1234512345
+[2025-05-19 14:14:41] File saved: log_manager.py
+[2025-05-19 14:15:08] admin logged out.
