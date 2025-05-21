@@ -3,9 +3,9 @@ import cv2
 from ultralytics import YOLO
 
 # Confidence thresholds
-vest_threshold = 0.5
-helmet_threshold = 0.6
-person_threshold = 0.6
+vest_threshold = 0.2
+helmet_threshold = 0.2
+person_threshold = 0.2
 
 
 def generate_frames():

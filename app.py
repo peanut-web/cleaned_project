@@ -212,19 +212,31 @@ def manage_users():
 @app.route('/delete_user/<phone>', methods=['POST'])
 def delete_user(phone):
     if session.get('role') != 'admin':
-        return redirect(url_for('login'))
+        return redirect(url_for('manage_users'))
 
     file_path = 'clients.csv'
     if os.path.exists(file_path):
         clients = []
+
+        # Read the existing clients
         with open(file_path, newline='', encoding='utf-8') as file:
             clients = list(csv.reader(file))
-        clients = [client for client in clients if client[1] != phone]
+
+        # Filter out the client with the matching phone number
+        clients = [
+            client for client in clients
+            if isinstance(client, (list, tuple)) and len(client) > 1 and client[1].strip() and client[1] != phone
+        ]
+
+        # Write the updated clients list back to the CSV
         with open(file_path, 'w', newline='', encoding='utf-8') as file:
             writer = csv.writer(file)
             writer.writerows(clients)
+
+        # Log and flash message
         add_log_entry(f"Deleted client with phone: {phone}")
         flash("Client deleted successfully.", "success")
+
     return redirect(url_for('manage_users'))
 
 @app.route('/edit_code', methods=['GET', 'POST'])
@@ -296,4 +308,5 @@ def view_logs():
 
     return render_template('admin/view_logs.html',)
 
-gunicorn app:app --bind 0.0.0.0:10000
+if __name__=="__main__":
+    app.run(debug=True)

@@ -40,3 +40,68 @@
 [2025-05-19 14:14:09] Deleted client with phone: 1234512345
 [2025-05-19 14:14:41] File saved: log_manager.py
 [2025-05-19 14:15:08] admin logged out.
+[2025-05-20 16:22:46] User logged in.
+[2025-05-20 16:24:28] User logged in.
+[2025-05-20 16:24:42] user started live detection.
+[2025-05-20 16:25:37] user stopped live detection.
+[2025-05-20 16:27:29] Uploaded expected image to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/image/upload/v1747738647/progress_images/r65irvybcgy0wihn0qzm.jpg
+[2025-05-20 16:27:29] Uploaded actual image to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/image/upload/v1747738648/progress_images/ncljanngjxjuwcbozzzg.jpg
+[2025-05-20 16:27:33] Progress report sent to client: 41.6%
+[2025-05-20 16:28:05] user logged out.
+[2025-05-20 16:28:17] Admin logged in.
+[2025-05-20 16:29:10] Added client: fresher bot, 1234567890
+[2025-05-20 16:29:44] Added client: rahul, 1234567890
+[2025-05-20 16:29:51] Added client: A.vikas reddy, 6300126037
+[2025-05-20 16:30:33] File saved: progress_analyzer.py
+[2025-05-20 16:30:35] File saved: progress_analyzer.py
+[2025-05-20 16:35:15] User logged in.
+[2025-05-20 16:35:31] user started live detection.
+[2025-05-20 16:39:20] user stopped live detection.
+[2025-05-20 16:40:11] user started live detection.
+[2025-05-20 16:40:51] user started live detection.
+[2025-05-20 16:42:07] user started live detection.
+[2025-05-20 16:42:33] user stopped live detection.
+[2025-05-20 16:45:08] User logged in.
+[2025-05-20 16:45:18] user started live detection.
+[2025-05-20 16:45:53] user stopped live detection.
+[2025-05-20 16:48:13] User logged in.
+[2025-05-20 16:48:29] user started live detection.
+[2025-05-20 16:49:20] user stopped live detection.
+[2025-05-20 16:50:13] User logged in.
+[2025-05-20 16:52:00] User logged in.
+[2025-05-20 16:52:11] user started live detection.
+[2025-05-20 16:52:45] user stopped live detection.
+[2025-05-20 16:53:32] Uploaded expected image to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/image/upload/v1747740209/progress_images/bax0cx7qgdw79gc03iyy.jpg
+[2025-05-20 16:53:32] Uploaded actual image to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/image/upload/v1747740211/progress_images/ubysdlhwfofybgclttuk.jpg
+[2025-05-20 16:53:35] Progress report sent to client: 37.63%
+[2025-05-20 16:54:18] user logged out.
+[2025-05-20 16:54:28] Admin logged in.
+[2025-05-20 16:55:03] Added client: intern, 1232456789
+[2025-05-20 16:57:28] User logged in.
+[2025-05-20 16:57:38] user started live detection.
+[2025-05-20 16:58:23] user stopped live detection.
+[2025-05-20 16:58:55] Uploaded expected image to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/image/upload/v1747740532/progress_images/myvr4zljzvzx0s6trsjh.jpg
+[2025-05-20 16:58:55] Uploaded actual image to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/image/upload/v1747740534/progress_images/qybfywynkbwwojgyonmz.jpg
+[2025-05-20 16:58:58] Progress report sent to client: 37.63%
+[2025-05-20 17:00:05] User logged in.
+[2025-05-20 17:00:17] user started live detection.
+[2025-05-20 17:02:08] User logged in.
+[2025-05-20 17:02:17] user started live detection.
+[2025-05-20 17:03:24] user stopped live detection.
+[2025-05-20 17:05:21] User logged in.
+[2025-05-20 17:05:32] user started live detection.
+[2025-05-20 17:06:16] user stopped live detection.
+[2025-05-20 17:06:50] Uploaded expected image to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/image/upload/v1747741008/progress_images/r42iiviclbvvvmgjy43i.jpg
+[2025-05-20 17:06:50] Uploaded actual image to Cloudinary: https://res.cloudinary.com/ddnjv5hbk/image/upload/v1747741009/progress_images/qn4hnt55wtgoyptihxkv.jpg
+[2025-05-20 17:06:53] Progress report sent to client: 37.63%
+[2025-05-20 17:07:33] user logged out.
+[2025-05-20 17:07:43] Admin logged in.
+[2025-05-20 17:08:24] Added client: someone, 1234567890
+[2025-05-20 17:09:52] admin logged out.
+[2025-05-21 16:50:24] User logged in.
+[2025-05-21 16:50:29] user logged out.
+[2025-05-21 16:50:42] Admin logged in.
+[2025-05-21 17:39:08] Deleted client with phone: 1234567890
+[2025-05-21 17:39:21] Deleted client with phone: 6300126037
+[2025-05-21 17:39:31] Added client: fresher bot, 1234567890
+[2025-05-21 17:39:42] Added client: A.vikas reddy, 6300126037
