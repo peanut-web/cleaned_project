@@ -10,9 +10,39 @@ from log_manager import add_log_entry, get_all_logs
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+from flask import Flask, render_template, request, jsonify
+import cv2
+import numpy as np
+
 
 app = Flask(__name__, template_folder='dashboard/templates', static_folder='dashboard/static')
 app.secret_key = 'your_secret_key'
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/detect', methods=['POST'])
+def detect():
+    if 'frame' not in request.files:
+        return jsonify({'error': 'No frame uploaded'}), 400
+
+    file = request.files['frame']
+    npimg = np.frombuffer(file.read(), np.uint8)
+    frame = cv2.imdecode(npimg, cv2.IMREAD_COLOR)
+
+    # === YOLO or any processing can go here ===
+    print("Frame received for processing.")
+
+    # Sample dummy result
+    result = {
+        'status': 'success',
+        'message': 'Frame received and processed',
+        'detection': 'No issues detected'  # Replace with real detections
+    }
+
+    return jsonify(result)
+
 
 # --- Cloudinary config ---
 cloudinary.config(
