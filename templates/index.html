@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GitHub Actions Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: url('https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #f0f0f0;
+            backdrop-filter: blur(5px);
+            animation: fadeInPage 1.5s ease;
+        }
+
+        @keyframes fadeInPage {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 30px;
+            background-color: rgba(0, 0, 0, 0.75);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+            position: relative;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Fira Code', monospace;
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #ff7b00;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 16px;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #555;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+            color: #ffb84d;
+        }
+
+        tr:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .refresh-btn {
+            position: absolute;
+            top: 25px;
+            right: 30px;
+            padding: 8px 14px;
+            font-size: 14px;
+            background-color: #ff7b00;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .refresh-btn:hover {
+            background-color: #e66900;
+        }
+
+        .watermark {
+            position: fixed;
+            bottom: 10px;
+            right: 15px;
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.7); /* black with 70% opacity */
+            font-family: 'Fira Code', monospace;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>GitHub Actions Tracker</h1>
+        <button class="refresh-btn" onclick="refreshTable()">🔄 Refresh</button>
+        <table id="actions-table">
+            <thead>
+                <tr>
+                    <th>Request ID</th>
+                    <th>Author</th>
+                    <th>Action</th>
+                    <th>From Branch</th>
+                    <th>To Branch</th>
+                    <th>Timestamp</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamic data will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Watermark -->
+    <div class="watermark">BY VIKAS REDDY</div>
+
+    <script>
+        function loadTableData() {
+            fetch('/actions')
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.querySelector("#actions-table tbody");
+                    tableBody.innerHTML = ""; // Clear old data
+                    data.forEach(action => {
+                        const row = document.createElement("tr");
+                        row.innerHTML = `
+                            <td>${action.request_id}</td>
+                            <td>${action.author}</td>
+                            <td>${action.action}</td>
+                            <td>${action.from_branch || '-'}</td>
+                            <td>${action.to_branch}</td>
+                            <td>${new Date(action.timestamp).toLocaleString()}</td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+                });
+        }
+
+        function refreshTable() {
+            loadTableData();
+        }
+
+        // Initial load
+        loadTableData();
+    </script>
+</body>
+</html>
+
