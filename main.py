@@ -1,7 +1,8 @@
 from flask import Flask, request, jsonify, render_template
 from pymongo import MongoClient
-from datetime import datetime
-import json  
+from datetime import datetime, timezone
+import json
+import traceback
 
 app = Flask(__name__)
 
@@ -16,28 +17,35 @@ def home():
 
 @app.route('/webhook', methods=['POST'])
 def github_webhook():
-    if request.headers.get('Content-Type') == 'application/json':
-        data = request.get_json()
+    content_type = request.headers.get('Content-Type')
+
+    if content_type == 'application/json':
+        data = request.get_json(force=True)
     else:
         return jsonify({"error": "Unsupported Media Type"}), 415
+
+    print("📦 Payload received:")
+    print(json.dumps(data, indent=2))
 
     if not data:
         return jsonify({"error": "No JSON payload received"}), 400
 
     try:
         action_type = request.headers.get("X-GitHub-Event", "").upper()
+        print("📌 Event Type:", action_type)
 
         if action_type == "PUSH":
-            author = data["pusher"]["name"]
-            to_branch = data["ref"].split("/")[-1]
-            request_id = data["head_commit"]["id"]
+            author = data.get("pusher", {}).get("name", "Unknown")
+            to_branch = data.get("ref", "").split("/")[-1]
+            request_id = data.get("head_commit", {}).get("id", "N/A")
             from_branch = None
 
         elif action_type == "PULL_REQUEST":
-            author = data["pull_request"]["user"]["login"]
-            from_branch = data["pull_request"]["head"]["ref"]
-            to_branch = data["pull_request"]["base"]["ref"]
-            request_id = str(data["pull_request"]["id"])
+            pr = data.get("pull_request", {})
+            author = pr.get("user", {}).get("login", "Unknown")
+            from_branch = pr.get("head", {}).get("ref", "unknown")
+            to_branch = pr.get("base", {}).get("ref", "unknown")
+            request_id = str(pr.get("id", "N/A"))
 
         elif action_type == "MERGE":
             return jsonify({"message": "MERGE event handling skipped"}), 200
@@ -51,38 +59,22 @@ def github_webhook():
             "action": action_type,
             "from_branch": from_branch,
             "to_branch": to_branch,
-            "timestamp": datetime.utcnow().isoformat()
+            "timestamp": datetime.now(timezone.utc).isoformat()
         }
 
         collection.insert_one(document)
         return jsonify({"message": "✅ Data stored successfully", "data": document}), 200
 
     except Exception as e:
+        traceback.print_exc()
         return jsonify({"error": str(e)}), 500
 
 @app.route('/actions', methods=['GET'])
 def fetch_actions():
     data = list(collection.find().sort("timestamp", -1).limit(10))
     for doc in data:
-        doc["_id"] = str(doc["_id"])  # Convert ObjectId for JSON
+        doc["_id"] = str(doc["_id"])
     return jsonify(data)
-
-
-
-@app.route('/webhook', methods=['POST'])
-def github_webhook():
-    content_type = request.headers.get('Content-Type')
-
-    if content_type == 'application/json':
-        data = request.get_json(force=True)
-    else:
-        return jsonify({"error": "Unsupported Media Type"}), 415
-
-    print("📦 Payload received:")
-    print(json.dumps(data, indent=2))  # <-- pretty print the entire payload
-
-    ...
-
 
 if __name__ == '__main__':
     app.run(debug=True)
