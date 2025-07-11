@@ -15,7 +15,11 @@ def home():
 
 @app.route('/webhook', methods=['POST'])
 def github_webhook():
-    data = request.json
+    if request.headers.get('Content-Type') == 'application/json':
+        data = request.get_json()
+    else:
+        return jsonify({"error": "Unsupported Media Type"}), 415
+
     if not data:
         return jsonify({"error": "No JSON payload received"}), 400
 
@@ -64,7 +68,3 @@ def fetch_actions():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
-
-
