@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, render_template
 from pymongo import MongoClient
 from datetime import datetime
+import json  
 
 app = Flask(__name__)
 
@@ -65,6 +66,23 @@ def fetch_actions():
     for doc in data:
         doc["_id"] = str(doc["_id"])  # Convert ObjectId for JSON
     return jsonify(data)
+
+
+
+@app.route('/webhook', methods=['POST'])
+def github_webhook():
+    content_type = request.headers.get('Content-Type')
+
+    if content_type == 'application/json':
+        data = request.get_json(force=True)
+    else:
+        return jsonify({"error": "Unsupported Media Type"}), 415
+
+    print("📦 Payload received:")
+    print(json.dumps(data, indent=2))  # <-- pretty print the entire payload
+
+    ...
+
 
 if __name__ == '__main__':
     app.run(debug=True)
