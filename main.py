@@ -19,18 +19,19 @@ def home():
 def github_webhook():
     content_type = request.headers.get('Content-Type')
 
-    if content_type == 'application/json':
-        data = request.get_json(force=True)
-    else:
+    if content_type != 'application/json':
+        print("❌ Unsupported Content-Type:", content_type)
         return jsonify({"error": "Unsupported Media Type"}), 415
 
-    print("📦 Payload received:")
-    print(json.dumps(data, indent=2))
-
-    if not data:
-        return jsonify({"error": "No JSON payload received"}), 400
-
     try:
+        data = request.get_json(force=True)
+        if not data:
+            print("❌ No data in request")
+            return jsonify({"error": "No JSON payload received"}), 400
+
+        print("📦 Payload received:")
+        print(json.dumps(data, indent=2))
+
         action_type = request.headers.get("X-GitHub-Event", "").upper()
         print("📌 Event Type:", action_type)
 
@@ -48,9 +49,11 @@ def github_webhook():
             request_id = str(pr.get("id", "N/A"))
 
         elif action_type == "MERGE":
+            print("ℹ️ MERGE event received - skipping.")
             return jsonify({"message": "MERGE event handling skipped"}), 200
 
         else:
+            print(f"ℹ️ Ignored event type: {action_type}")
             return jsonify({"message": f"Ignored event type: {action_type}"}), 200
 
         document = {
@@ -63,9 +66,11 @@ def github_webhook():
         }
 
         collection.insert_one(document)
+        print("✅ Stored in DB:", document)
         return jsonify({"message": "✅ Data stored successfully", "data": document}), 200
 
     except Exception as e:
+        print("❌ Exception occurred while handling webhook:")
         traceback.print_exc()
         return jsonify({"error": str(e)}), 500
 
@@ -78,3 +83,4 @@ def fetch_actions():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
