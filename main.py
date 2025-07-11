@@ -76,7 +76,8 @@ def github_webhook():
             "timestamp": datetime.now(timezone.utc).isoformat()
         }
 
-        collection.insert_one(document)
+        result = collection.insert_one(document)
+        document["_id"] = str(result.inserted_id)  # Convert ObjectId to string
         print("✅ Stored in DB:", document)
         return jsonify({"message": "✅ Data stored successfully", "data": document}), 200
 
