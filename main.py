@@ -36,10 +36,17 @@ def github_webhook():
         print("📌 Event Type:", action_type)
 
         if action_type == "PUSH":
-            author = data.get("pusher", {}).get("name", "Unknown")
+            pusher = data.get("pusher", {})
+            head_commit = data.get("head_commit", {})
+
+            author = pusher.get("name", "Unknown")
             to_branch = data.get("ref", "").split("/")[-1]
-            request_id = data.get("head_commit", {}).get("id", "N/A")
+            request_id = head_commit.get("id", "N/A")
             from_branch = None
+
+            print("👤 Author:", author)
+            print("🌿 Branch:", to_branch)
+            print("🪪 Commit ID:", request_id)
 
         elif action_type == "PULL_REQUEST":
             pr = data.get("pull_request", {})
@@ -47,6 +54,10 @@ def github_webhook():
             from_branch = pr.get("head", {}).get("ref", "unknown")
             to_branch = pr.get("base", {}).get("ref", "unknown")
             request_id = str(pr.get("id", "N/A"))
+
+            print("👤 Author:", author)
+            print("🔄 From:", from_branch, "➡️ To:", to_branch)
+            print("🪪 Pull Request ID:", request_id)
 
         elif action_type == "MERGE":
             print("ℹ️ MERGE event received - skipping.")
@@ -81,7 +92,5 @@ def fetch_actions():
         doc["_id"] = str(doc["_id"])
     return jsonify(data)
 
-
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
-
